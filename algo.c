@@ -231,9 +231,9 @@ int S(char word[] , int index , pnode* H){
     }
     int for_return = get_data(&ans,dest);
     if (for_return == INT_MAX){
-        printf("Dijsktra shortest path: %d" , -1);
+        printf("Dijsktra shortest path: %d \n" , -1);
     }
-    printf("Dijsktra shortest path: %d\n" , for_return);
+    printf("Dijsktra shortest path: %d \n" , for_return);
     return index;
 }
 
@@ -344,10 +344,10 @@ int T(char word[] , int index , pnode* H){
     }
     permute(for_permute, 0, num_of_nodes-1, cities_mat, num_of_nodes);
     if (TSP_distance == INT_MAX){
-        printf("TSP shortest path: %d\n" , -1);
+        printf("TSP shortest path: %d \n" , -1);
     }
     else{
-        printf("TSP shortest path: %d\n" , TSP_distance);
+        printf("TSP shortest path: %d \n" , TSP_distance);
     }
     return index;
 }
