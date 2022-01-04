@@ -234,6 +234,7 @@ int S(char word[] , int index , pnode* H){
         printf("Dijsktra shortest path: %d \n" , -1);
     }
     printf("Dijsktra shortest path: %d \n" , for_return);
+    deletel(&ans);
     return index;
 }
 
@@ -341,6 +342,7 @@ int T(char word[] , int index , pnode* H){
         }
         k++;
         tmp = tmp->next;
+        deletel(&after_dijkstra);
     }
     permute(for_permute, 0, num_of_nodes-1, cities_mat, num_of_nodes);
     if (TSP_distance == INT_MAX){
@@ -349,6 +351,7 @@ int T(char word[] , int index , pnode* H){
     else{
         printf("TSP shortest path: %d \n" , TSP_distance);
     }
+    deletel(&cities);
     return index;
 }
 
