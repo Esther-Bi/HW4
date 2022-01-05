@@ -55,5 +55,6 @@ int main(void) {
         }
     }
   free(word); // Freeing word/
+  delete_all_nodes(&Head);
   return 0;
 }
