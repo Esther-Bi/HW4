@@ -12,21 +12,33 @@ int TSP_distance = INT_MAX;
 
 int A(char word[] , int index , pnode* H){
     delete_all_nodes(H);
-    int num_of_nodes = word[index]-48; // index is num of nodes
+    int k=0;
+    int f=index;
+    while (word[f]!=' ' && f<strlen(word)){
+        f++;
+        k++;
+    }
+    char curr[] = "000000000" ;
+    int b=strlen(curr)-1;
+    for (int j=index+k ; j>=index ; j--){
+        curr[b]=word[j];
+        b--;
+    }
+    int num_of_nodes = atoi(curr);
+    index = f+1; // index is now 'n'
     *H = NULL;
-    index = index+2; // index+2 is 'n'
     int i=0;
     while (i<num_of_nodes){
         if (word[index]=='n'){
             index += 2;
-            int k=0;
-            int f=index;
+            k=0;
+            f=index;
             while (word[f]!=' ' && f<strlen(word)){
                 f++;
                 k++;
             }
             char current[] = "000000000";
-            int b=strlen(current)-1;
+            b=strlen(current)-1;
             for (int j=index+k ; j>=index ; j--){
                 current[b]=word[j];
                 b--;
@@ -233,7 +245,9 @@ int S(char word[] , int index , pnode* H){
     if (for_return == INT_MAX){
         printf("Dijsktra shortest path: %d \n" , -1);
     }
-    printf("Dijsktra shortest path: %d \n" , for_return);
+    else {
+        printf("Dijsktra shortest path: %d \n" , for_return);
+    }
     deletel(&ans);
     return index;
 }
